@@ -113,7 +113,7 @@ export default function page() {
     description: "Dip your toes into automated trading with beginner-friendly bot strategies.",
     features: ["Basic stop-loss & take-profit setup", "Automated entry & exit execution", "Limited token coverage per week"],
     actionLabel: "Purchase Now",
-    actionLink: "https://t.me/vaesmartsignals_starter"
+    actionLink: "https://link.depay.com/CmXdAmw5NDkLonmVyrkpw"
   },
   {
     title: "SmartBot Pro",
