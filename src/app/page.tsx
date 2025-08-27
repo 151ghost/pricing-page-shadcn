@@ -107,37 +107,37 @@ export default function page() {
 
   const plans = [
   {
-    title: "Starter Signals",
-    monthlyPrice: 1,
-    yearlyPrice: 1,
-    description: "Get your foot in the market with curated entry and exit points on trending tokens.",
-    features: ["Limited memecoin signals per week", "Real-time entry/exit alerts", "Stop-loss & take-profit guidance"],
+    title: "SmartBot Starter",
+    monthlyPrice: 150,
+    yearlyPrice: 1000,
+    description: "Dip your toes into automated trading with beginner-friendly bot strategies.",
+    features: ["Basic stop-loss & take-profit setup", "Automated entry & exit execution", "Limited token coverage per week"],
     actionLabel: "Purchase Now",
     actionLink: "https://t.me/vaesmartsignals_starter"
   },
   {
-    title: "Pro",
-    monthlyPrice: 75,
-    yearlyPrice: 750,
-    description: "For serious traders who want daily premium signals.",
-    features: ["Daily curated signals for trending memecoins & major tokens", "Multi-target take-profit & stop-loss strategies", "Historical performance analytics for each signal"],
+    title: "SmartBot Pro",
+    monthlyPrice: 250,
+    yearlyPrice: 2000,
+    description: "Level up your trading with advanced automation designed for consistency and higher returns.",
+    features: ["Full access to major tokens + memecoins", "Multi-target take-profit execution", "Dynamic stop-loss & portfolio risk control"],
     actionLabel: "Purchase Now",
     popular: true,
     actionLink: "https://link.depay.com/1YXhcjWimEaEc7iLEYbdRs" // <-- MUST be a value
   },
   {
-    title: "Elite",
-    monthlyPrice: 250,
-    yearlyPrice: 2000,
-    description: "VIP-grade access for power traders",
-    features: ["Full memecoin & altcoin coverage", "Whale wallet tracking + early-entry alerts", "Example Feature Number 3", "Direct Telegram VIP support & insights"],
+    title: "SmartBot Elite",
+    monthlyPrice: 500,
+    yearlyPrice: 4000,
+    description: "Our most powerful SmartBot, built for serious traders who want maximum performance and edge.",
+    features: ["AI-driven predictive strategies", "Capitalizes on micro-movements with high-frequency & scalping capability", "Priority access to insider-grade strategies, premium support, and early feature rollouts",],
     actionLabel: "Purchase Now",
     actionLink: "https://link.depay.com/A6UUzvdNzmf2HTit7UQgk"
   },
 ];
   return (
     <div className="py-8">
-      <PricingHeader title="SmartSignal Pricing Plans" subtitle="Choose the signals that are right for you!" />
+      <PricingHeader title="SmartBot Suite Pricing" subtitle="Choose the trading bot that's right for you!" />
       <PricingSwitch onSwitch={togglePricingPeriod} />
       <section className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8">
         {plans.map((plan) => {
