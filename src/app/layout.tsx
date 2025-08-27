@@ -7,8 +7,8 @@ import { ModeToggle } from "@/components/theme-toggler"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Pricing Page",
-  description: "Pricing page for a SaaS product using Shadcn UI",
+  title: "VaeDeFi SmartSignals Pricing",
+  description: "Choose the signals that are right for you!",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

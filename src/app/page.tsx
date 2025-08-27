@@ -21,6 +21,7 @@ type PricingCardProps = {
   actionLabel: string
   popular?: boolean
   exclusive?: boolean
+  actionLink?: string
 }
 
 const PricingHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
@@ -44,7 +45,7 @@ const PricingSwitch = ({ onSwitch }: PricingSwitchProps) => (
   </Tabs>
 )
 
-const PricingCard = ({ isYearly, title, monthlyPrice, yearlyPrice, description, features, actionLabel, popular, exclusive }: PricingCardProps) => (
+const PricingCard = ({ isYearly, title, monthlyPrice, yearlyPrice, description, features, actionLabel, actionLink, popular, exclusive }: PricingCardProps) => (
   <Card
     className={cn(`w-72 flex flex-col justify-between py-1 ${popular ? "border-rose-400" : "border-zinc-700"} mx-auto sm:mx-0`, {
       "animate-background-shine bg-white dark:bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors":
@@ -78,11 +79,18 @@ const PricingCard = ({ isYearly, title, monthlyPrice, yearlyPrice, description, 
       </CardContent>
     </div>
     <CardFooter className="mt-2">
-      <Button className="relative inline-flex w-full items-center justify-center rounded-md bg-black text-white dark:bg-white px-6 font-medium  dark:text-black transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-        <div className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-[#c7d2fe] to-[#8678f9] opacity-75 blur" />
-        {actionLabel}
-      </Button>
-    </CardFooter>
+        {actionLink ? (
+          <a href={actionLink} target="_blank" rel="noopener noreferrer" className="w-full">
+            <Button className="relative w-full bg-black dark:bg-white text-white dark:text-black rounded-md px-6 py-2 font-medium hover:opacity-90">
+              {actionLabel}
+            </Button>
+          </a>
+        ) : (
+          <Button className="relative w-full bg-black dark:bg-white text-white dark:text-black rounded-md px-6 py-2 font-medium hover:opacity-90">
+            {actionLabel}
+          </Button>
+        )}
+      </CardFooter>
   </Card>
 )
 
@@ -98,35 +106,38 @@ export default function page() {
   const togglePricingPeriod = (value: string) => setIsYearly(parseInt(value) === 1)
 
   const plans = [
-    {
-      title: "Basic",
-      monthlyPrice: 10,
-      yearlyPrice: 100,
-      description: "Essential features you need to get started",
-      features: ["Example Feature Number 1", "Example Feature Number 2", "Example Feature Number 3"],
-      actionLabel: "Get Started",
-    },
-    {
-      title: "Pro",
-      monthlyPrice: 25,
-      yearlyPrice: 250,
-      description: "Perfect for owners of small & medium businessess",
-      features: ["Example Feature Number 1", "Example Feature Number 2", "Example Feature Number 3"],
-      actionLabel: "Get Started",
-      popular: true,
-    },
-    {
-      title: "Enterprise",
-      price: "Custom",
-      description: "Dedicated support and infrastructure to fit your needs",
-      features: ["Example Feature Number 1", "Example Feature Number 2", "Example Feature Number 3", "Super Exclusive Feature"],
-      actionLabel: "Contact Sales",
-      exclusive: true,
-    },
-  ]
+  {
+    title: "Starter Signals",
+    monthlyPrice: 1,
+    yearlyPrice: 1,
+    description: "Get your foot in the market with curated entry and exit points on trending tokens.",
+    features: ["Limited memecoin signals per week", "Real-time entry/exit alerts", "Stop-loss & take-profit guidance"],
+    actionLabel: "Purchase Now",
+    actionLink: "https://t.me/vaesmartsignals_starter"
+  },
+  {
+    title: "Pro",
+    monthlyPrice: 75,
+    yearlyPrice: 750,
+    description: "For serious traders who want daily premium signals.",
+    features: ["Daily curated signals for trending memecoins & major tokens", "Multi-target take-profit & stop-loss strategies", "Historical performance analytics for each signal"],
+    actionLabel: "Purchase Now",
+    popular: true,
+    actionLink: "https://link.depay.com/1YXhcjWimEaEc7iLEYbdRs" // <-- MUST be a value
+  },
+  {
+    title: "Elite",
+    monthlyPrice: 250,
+    yearlyPrice: 2000,
+    description: "VIP-grade access for power traders",
+    features: ["Full memecoin & altcoin coverage", "Whale wallet tracking + early-entry alerts", "Example Feature Number 3", "Direct Telegram VIP support & insights"],
+    actionLabel: "Purchase Now",
+    actionLink: "https://link.depay.com/A6UUzvdNzmf2HTit7UQgk"
+  },
+];
   return (
     <div className="py-8">
-      <PricingHeader title="Pricing Plans" subtitle="Choose the plan that's right for you" />
+      <PricingHeader title="SmartSignal Pricing Plans" subtitle="Choose the signals that are right for you!" />
       <PricingSwitch onSwitch={togglePricingPeriod} />
       <section className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8">
         {plans.map((plan) => {
